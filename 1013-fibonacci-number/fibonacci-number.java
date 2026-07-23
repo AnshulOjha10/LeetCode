@@ -1,16 +1,12 @@
 class Solution {
     public int fib(int n) {
         
-        return search(n);
-        
-    }
-
-    private int search(int n){
-        
-        if(n < 2){
+        if( n <= 1){
             return n;
         }
 
-         return search(n-1) + search(n-2);
+        return fib(n-1) + fib(n-2);
     }
+
+
 }
