@@ -1,30 +1,20 @@
 class Solution {
     public void reverseString(char[] s) {
-        int k = s.length - 1;
-        search(s, 0, k);
+        reverse(s, 0, s.length-1);
     }
 
-        private void search(char[] s, int start, int end){
+    public void reverse(char[] arr, int start, int end){
 
-            if(start >= end){
-                return;
-            }
-            
-            char first = s[start];
-            char last = s[end];
+        //base condition
 
-            if(Character.toLowerCase(first) == Character.toLowerCase(last)){
+        if(start >= end){
+            return;
+        }
 
-                if(Character.isLowerCase(first) != Character.isLowerCase(last)){
-                    s[start] = last;
-                    s[end] = first;
-                }
-            }else{
-                s[start] = last;
-                s[end] = first;
-                
-            }
+        char temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
 
-            search(s, start + 1, end -1);
+         reverse(arr, start + 1, end - 1);
     }
 }
